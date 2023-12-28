@@ -45,11 +45,24 @@ class _SignupPageState extends State<SignupPage> {
               controller: passwordController,
               obscureText: true,
             ),
+            MaterialButton(
+                color: Colors.blue,
+                child: const Text("Pick Image from Gallery",
+                    style: TextStyle(
+                        color: Colors.white70, fontWeight: FontWeight.bold)),
+                onPressed: () {}),
+            MaterialButton(
+                color: Colors.blue,
+                child: const Text("Pick Image from Camera",
+                    style: TextStyle(
+                        color: Colors.white70, fontWeight: FontWeight.bold)),
+                onPressed: () {}),
             ElevatedButton(
               onPressed: () {
                 final User user = User(
                     username: usernameController.text,
-                    password: passwordController.text);
+                    password: passwordController.text,
+                    image: "");
                 context.read<AuthProvider>().signup(user: user).then((token) {
                   if (token.isNotEmpty) {
                     context.pushNamed("signin");
